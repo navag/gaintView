@@ -5,7 +5,7 @@ const checkAuth = require('../middleware/check-auth');
 
 const Student = require("../models/student");
 
-router.get("/",(req, res, next) => {
+router.get("/",checkAuth,(req, res, next) => {
   Student.find()
     .select("_id name rollNo degree city admDate")
     .exec()
@@ -39,7 +39,7 @@ router.get("/",(req, res, next) => {
     });
 });
 
-router.post("/", (req, res, next) => {
+router.post("/",checkAuth, (req, res, next) => {
     console.log(req.body,"post")
   const student = new Student({
     _id: new mongoose.Types.ObjectId(),
@@ -65,7 +65,7 @@ router.post("/", (req, res, next) => {
     });
 });
 
-router.get("/:studentId", (req, res, next) => {
+router.get("/:studentId",checkAuth, (req, res, next) => {
   const id = req.params.studentId;
   console.log(id);
   Student.findById(id)
@@ -89,7 +89,7 @@ router.get("/:studentId", (req, res, next) => {
     });
 });
 
-router.patch("/:studentId", (req, res, next) => {
+router.patch("/:studentId",checkAuth, (req, res, next) => {
   const id = req.params.studentId;
   console.log(req.body);
   Student.update({ _id: id }, { $set: req.body })
@@ -107,7 +107,7 @@ router.patch("/:studentId", (req, res, next) => {
     });
 });
 
-router.delete("/:studentId", (req, res, next) => {
+router.delete("/:studentId",checkAuth, (req, res, next) => {
   const id = req.params.studentId;
   Student.findById(id)
   .exec()
