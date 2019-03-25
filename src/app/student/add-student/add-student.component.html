@@ -1,0 +1,89 @@
+<form [formGroup]="addForm" (ngSubmit)="add(addForm)">
+    <div class="content-padding">
+        <div class="row">
+        <div class="col-md-6 col-sm-6">
+        <div class="example-container">
+          <mat-form-field>
+            <input
+             matInput 
+             placeholder="Name*"
+             formControlName="name"
+             >
+            <mat-error *ngIf="addForm.get('name').touched && addForm.get('name').invalid">
+              Please enter a valid Alpha characters upto length 10 only
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+        <div class="example-container">
+          <mat-form-field>
+            <input 
+            matInput 
+            placeholder="City"
+            formControlName="city"
+            >
+            <mat-error *ngIf="addForm.get('city').touched && addForm.get('city').invalid">
+                Please enter a valid Alpha characters upto length 10 only
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="example-container">
+                <mat-form-field>
+                  <mat-select formControlName="degree" placeholder="Degree*">
+                    <mat-option  value="E&TC">ENTC</mat-option>
+                    <mat-option  value="ME">ME</mat-option>
+                    <mat-option  value="EE">EE</mat-option>
+                    <mat-option  value="CE">CE</mat-option>
+                    <mat-option  value="EC">EC</mat-option>
+
+
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              </div>
+        <div class="col-md-6 col-sm-6">
+        <div class="example-container">
+          <mat-form-field>
+            <input 
+            matInput 
+            placeholder="Roll No*"
+            formControlName="rollNo"
+            >
+            <mat-error *ngIf="addForm.get('rollNo').touched && addForm.get('rollNo').invalid">
+              Please enter 6 digit Numeric values only.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        </div>
+            <div class="row">
+               
+                <div class="col-md-6 col-sm-6">
+                <div class="example-container">
+                  <mat-form-field class="example-full-width">
+                  <input formControlName="admDate" matInput [matDatepicker]="picker" placeholder="Admission Date*">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker></mat-datepicker>
+                  <mat-error *ngIf="addForm.get('admDate').touched && addForm.get('admDate').invalid">
+                      Please enter a valid Date in MM-DD-YYY format.
+                    </mat-error>
+                </mat-form-field>
+                </div>
+                </div>
+                </div>
+        
+        <div class="row">
+              <div class="col-md-3 col-sm-3">
+        <button mat-stroked-button color="primary" type="submit">Submit</button>
+          </div>
+          <div class="col-md-3 col-sm-3">
+        <button mat-stroked-button routerLink="/student-list" type="button" color="primary">Cancel</button>
+          </div>
+          </div>
+        </div>
+</form>

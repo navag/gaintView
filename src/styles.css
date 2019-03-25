@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-radio-button {
+  margin-left: 16px;
+}
+
+.minHeight {
+  min-height: 300px;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container {
+  width: 100%;
+}
+
+.content-padding {
+  padding: 10px 6% 10px 6%;
+}
+
+.mat-stroked-button[disabled] {
+    cursor: not-allowed;
+}
+
+.mT3 {
+  margin-top: 3%;
+}

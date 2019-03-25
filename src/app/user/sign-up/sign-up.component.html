@@ -1,0 +1,131 @@
+<form [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
+    <div class="content-padding">
+        <div class="row">
+        <div class="col-md-6 col-sm-6">
+        <div class="example-container">
+          <mat-form-field>
+            <input
+             matInput 
+             placeholder="First Name*"
+             formControlName="firstName"
+             >
+            <mat-error *ngIf="signUpForm.get('firstName').touched && signUpForm.get('firstName').invalid">
+              Please enter a valid Alpha characters upto length 10 only
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+        <div class="example-container">
+          <mat-form-field>
+            <input 
+            matInput 
+            placeholder="Last Name"
+            formControlName="lastName"
+            >
+            <mat-error *ngIf="signUpForm.get('lastName').touched && signUpForm.get('lastName').invalid">
+                Please enter a valid Alpha characters upto length 10 only
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-sm-6">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput
+             placeholder="Email*"
+             formControlName="email"
+             >
+             <mat-error *ngIf="signUpForm.get('email').touched && signUpForm.get('email').invalid">
+              Please enter a valid email address: example@extention.com
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+        <div class="example-container">
+          <mat-form-field>
+            <input 
+            matInput 
+            placeholder="Contact Number*"
+            formControlName="contactNumber"
+            >
+            <mat-error *ngIf="signUpForm.get('contactNumber').touched && signUpForm.get('contactNumber').invalid">
+              Please enter 10 digit Numeric values only.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        </div>
+                <div class="row">
+            <div class="col-md-6 col-sm-6">
+            <div class="example-container">
+              <mat-form-field>
+                <input
+                 matInput 
+                 placeholder="Password*"
+                 formControlName="password"
+                 type="password" 
+                 >
+                <mat-error *ngIf="signUpForm.get('password').touched && signUpForm.get('password').invalid">
+                    Minimum Six and maximum Ten characters without Special Characters.
+                </mat-error>
+              </mat-form-field>
+            </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+            <div class="example-container">
+              <mat-form-field>
+                <input 
+                matInput 
+                placeholder="Confirm Password*"
+                type="password" 
+                formControlName="confPassword">
+                <mat-error *ngIf="signUpForm.get('confPassword').touched && signUpForm.get('confPassword').invalid">
+                    Minimum Six and maximum Ten characters without Special Characters.
+            </mat-error>
+            <mat-error *ngIf="this.signUpForm.get('password').value !== this.signUpForm.get('confPassword').value">
+                Password and confirmed password should be same.
+            </mat-error>
+              </mat-form-field>
+            </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div class="example-container">
+                  <mat-form-field>
+                    <mat-select formControlName="department" placeholder="department*">
+                      <mat-option  value="Administrative">Administrative</mat-option>
+                      <mat-option  value="library">library</mat-option>
+                      <mat-option  value="Staff">Staff</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                </div>
+                <!-- <div class="col-md-6 col-sm-6">
+                <div class="example-container">
+                  <mat-form-field class="example-full-width">
+                  <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" placeholder="Date Of Birth*">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker></mat-datepicker>
+                  <mat-error *ngIf="signUpForm.get('dateOfBirth').touched && signUpForm.get('dateOfBirth').invalid">
+                      Please enter a valid Date in MM-DD-YYY format.
+                    </mat-error>
+                </mat-form-field>
+                </div>
+                </div> -->
+                </div>
+        
+        <div class="row">
+              <div class="col-md-3 col-sm-3">
+        <button mat-stroked-button color="primary" type="submit">Submit</button>
+          </div>
+          <div class="col-md-3 col-sm-3">
+        <button mat-stroked-button routerLink="/home" type="button" color="primary">Cancel</button>
+          </div>
+          </div>
+        </div>
+</form>

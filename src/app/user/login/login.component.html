@@ -1,0 +1,44 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()" >
+  <div class="col-md-6 col-sm-6 loginDiv">
+<div class="example-container">
+  <mat-form-field>
+    <input matInput 
+      placeholder="Email*"
+      email 
+       id="email"
+        type="email" 
+        name="email"
+        formControlName="email"
+        (keypress)="onChange()"
+        >
+        <mat-error *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid">
+      Please enter a valid email address.
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input 
+    matInput 
+    placeholder="Password*" 
+    name="password"
+    type="password" 
+    formControlName="password"
+    >
+    <mat-error *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+     Minimum Six and maximum Ten characters without Special Characters.
+    </mat-error>
+  </mat-form-field>
+  <div class="row">
+      <div class="col-md-6 col-sm-6">
+<button mat-stroked-button color="primary" type="submit">Login</button>
+  </div>
+  <div class="col-md-6 col-sm-6">
+<button mat-stroked-button routerLink="/sign-up" color="primary">Sign Up</button>
+  </div>
+  </div>
+</div>
+</div>
+<div *ngIf="showLoader" style="margin-left: 50%">
+   <app-loader></app-loader>
+</div>
+</form>
